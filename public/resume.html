@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Guidance & Checklist | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .do-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .dont-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .formula-card {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) {
+      .do-dont-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h2>MargDarshi</h2>
+          <span>Societal Internship</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="sidebar-category">Main Navigation</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="aptitude.html" class="sidebar-link">
+              <span class="sidebar-icon">🎯</span>
+              <span>Aptitude Practice</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="technical.html" class="sidebar-link">
+              <span class="sidebar-icon">💻</span>
+              <span>Technical Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="interview.html" class="sidebar-link">
+              <span class="sidebar-icon">💼</span>
+              <span>Interview Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="career.html" class="sidebar-link">
+              <span class="sidebar-icon">🧭</span>
+              <span>Career Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resume.html" class="sidebar-link active">
+              <span class="sidebar-icon">📝</span>
+              <span>Resume Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resources.html" class="sidebar-link">
+              <span class="sidebar-icon">📚</span>
+              <span>Placement Resources</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="progress.html" class="sidebar-link">
+              <span class="sidebar-icon">📈</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-category">Account</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="profile.html" class="sidebar-link">
+              <span class="sidebar-icon">👤</span>
+              <span>Student Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title">College Placement Resume Guidance</h1>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">ST</div>
+          <div>
+            <div class="user-info-text student-name">Student</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" class="student-branch">CSE</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content-container">
+
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">
+            ATS-Friendly Resume Strategy for Campus Placements
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Learn how campus recruiters scan engineering resumes in 6 seconds, write high-impact project bullets, and check off items in your personal resume checklist.
+          </p>
+        </div>
+
+        <!-- Section 1: Standard College Resume Structure -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">1. Recommended Single-Page Resume Structure</h3>
+            <span class="badge badge-blue">Standard 1-Page Format</span>
+          </div>
+
+          <div class="grid-cols-3" style="margin-bottom: 0;">
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--primary);">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Header & Contact</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Full name, college email, phone number, LinkedIn profile URL, and GitHub profile URL. No photos, marital status, or full street addresses.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent);">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Education & CGPA</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">B.E. / B.Tech degree, college name, university affiliation, current branch, graduation year (e.g., 2026), and current cumulative CGPA / percentage.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--warning);">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Technical Skills</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Categorized lists: Languages (Java, C, Python), Web (HTML, CSS, JS, Node), Databases (SQL, MongoDB), Developer Tools (Git, VS Code, Linux).</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #8b5cf6;">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Academic & Major Projects</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">2-3 substantial projects. Include project title, technologies used, GitHub link, live demo URL, and 2-3 bullet points measuring results.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #06b6d4;">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Internships / Experience</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Societal internships, virtual internships, open source contributions, or freelance gigs with quantifiable contributions.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #ec4899;">
+              <h4 style="color: var(--secondary); margin-bottom: 4px; font-size: 0.95rem;">Achievements & Certifications</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Hackathon placements, LeetCode contest rating, paper publications, or verified technical certifications.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: What to Include vs What NOT to Include -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">2. What to Include vs. What NOT to Include</h3>
+          </div>
+
+          <div class="do-dont-grid">
+            <div class="do-box">
+              <h4 style="color: #047857; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                ✅ MUST INCLUDE (Do’s)
+              </h4>
+              <ul style="padding-left: 18px; line-height: 1.7; font-size: 0.9rem; color: #1e293b;">
+                <li>Active hyperlinks to GitHub, LinkedIn, and live project demos.</li>
+                <li>Action verbs at the beginning of each bullet (Developed, Designed, Optimized, Architected).</li>
+                <li>Quantifiable metrics (e.g. "reduced latency by 35%", "tested with 200 students").</li>
+                <li>Clean, standard margins (0.5 to 0.75 inches) and readable single font (Arial, Calibri, Inter).</li>
+                <li>Single-page length strictly enforced for fresh college graduates.</li>
+                <li>Save and submit as a clean PDF named `FirstName_LastName_Resume.pdf`.</li>
+              </ul>
+            </div>
+
+            <div class="dont-box">
+              <h4 style="color: #b91c1c; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                ❌ MUST AVOID (Don’ts)
+              </h4>
+              <ul style="padding-left: 18px; line-height: 1.7; font-size: 0.9rem; color: #1e293b;">
+                <li>Do NOT include passport photos, date of birth, blood group, or marital status.</li>
+                <li>Do NOT use decorative graphic progress bars or rating stars for skills (e.g. "Java: 4/5 stars").</li>
+                <li>Do NOT exceed 1 page under any circumstances for fresher applications.</li>
+                <li>Do NOT include obvious school-level claims (e.g. "School House Captain in 6th Standard").</li>
+                <li>Do NOT list generic cliché hobbies like "Listening to music" or "Browsing the internet".</li>
+                <li>Never submit editable `.docx` files unless specifically requested by an ATS portal.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Project Bullet Writing Formula -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">3. Project Bullet Writing: The Google XYZ Formula</h3>
+            <span class="badge badge-green">Recruiter Gold Standard</span>
+          </div>
+
+          <div class="formula-card">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; color: #38bdf8;">
+              “Accomplished [X] as measured by [Y], by doing [Z]”
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+              Begin each bullet with a powerful action verb, state the measurable result or business metric achieved, and describe the specific technologies/techniques you utilized.
+            </p>
+          </div>
+
+          <div class="grid-cols-2" style="margin-bottom: 0;">
+            <div style="background: #fef2f2; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #ef4444;">
+              <h4 style="color: #991b1b; font-size: 0.92rem; margin-bottom: 6px;">❌ Weak / Vague Example:</h4>
+              <p style="font-size: 0.88rem; color: #475569; font-style: italic;">
+                "Made a college website using Node.js and MongoDB where students can login and practice questions."
+              </p>
+            </div>
+
+            <div style="background: #f0fdf4; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #10b981;">
+              <h4 style="color: #047857; font-size: 0.92rem; margin-bottom: 6px;">✅ High-Impact XYZ Example:</h4>
+              <p style="font-size: 0.88rem; color: #1e293b; font-weight: 500;">
+                "Architected a full-stack career guidance portal using Node.js, Express, and MongoDB, enabling 500+ students to diagnose placement readiness across 15+ aptitude and technical modules."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Top 6 Common Resume Mistakes -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">4. Top 6 Fatal Resume Mistakes Caught by Recruiters</h3>
+          </div>
+
+          <div class="grid-cols-3" style="margin-bottom: 0;">
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">1. Typographical Errors</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Spelling "Javascript", "Github", or grammatical mistakes signals a lack of attention to detail.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">2. Broken Hyperlinks</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Linking to private GitHub repos or a 404 dead link frustrates recruiters instantly.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">3. Listing Tech You Can’t Explain</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Never put "Docker" or "Kubernetes" unless you can explain their internals in an interview.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">4. Tutorial Clones as Projects</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Standard To-Do apps or Netflix clones fail to impress. Build custom solutions addressing real societal problems.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">5. Multi-Column ATS Incompatibility</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Fancy two-column Canva templates get garbled by corporate ATS resume parsing engines.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <strong style="color: var(--secondary);">6. Unformatted File Names</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Sending `Resume_Final_v3_latest.pdf` looks unprofessional. Use `FirstName_LastName_Resume.pdf`.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Interactive College Resume Checklist -->
+        <div class="card" id="checklistSection">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">5. Interactive College Resume Checklist</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
+                Check off items as you refine your resume. Completed checks are permanently saved to MongoDB and increase your placement readiness score!
+              </p>
+            </div>
+            <div id="checklistScoreBadge" class="badge badge-blue">0 / 6 Completed</div>
+          </div>
+
+          <div class="checklist" id="resumeChecklist">
+            <div class="checklist-item" id="item-chk-1">
+              <input type="checkbox" id="chk-1" onchange="toggleChecklistItem('chk-1')">
+              <label class="checklist-label" for="chk-1">
+                <strong>Single-Page Constraint:</strong> My resume fits comfortably on exactly one single page without overflowing.
+              </label>
+            </div>
+
+            <div class="checklist-item" id="item-chk-2">
+              <input type="checkbox" id="chk-2" onchange="toggleChecklistItem('chk-2')">
+              <label class="checklist-label" for="chk-2">
+                <strong>Live Project & Profile Hyperlinks:</strong> My GitHub, LinkedIn, and live project deployment links are working and clickable in PDF.
+              </label>
+            </div>
+
+            <div class="checklist-item" id="item-chk-3">
+              <input type="checkbox" id="chk-3" onchange="toggleChecklistItem('chk-3')">
+              <label class="checklist-label" for="chk-3">
+                <strong>Google XYZ Formula Applied:</strong> Every project bullet begins with an active verb and includes a quantifiable metric.
+              </label>
+            </div>
+
+            <div class="checklist-item" id="item-chk-4">
+              <input type="checkbox" id="chk-4" onchange="toggleChecklistItem('chk-4')">
+              <label class="checklist-label" for="chk-4">
+                <strong>Clean Categorized Skills:</strong> Skills are organized into Languages, Frameworks, Databases, and Tools with zero arbitrary rating bars.
+              </label>
+            </div>
+
+            <div class="checklist-item" id="item-chk-5">
+              <input type="checkbox" id="chk-5" onchange="toggleChecklistItem('chk-5')">
+              <label class="checklist-label" for="chk-5">
+                <strong>Grammar & Spellcheck Verified:</strong> Full text has been proofread with zero typos or capitalization inconsistencies.
+              </label>
+            </div>
+
+            <div class="checklist-item" id="item-chk-6">
+              <input type="checkbox" id="chk-6" onchange="toggleChecklistItem('chk-6')">
+              <label class="checklist-label" for="chk-6">
+                <strong>Proper PDF Naming:</strong> File is exported and saved strictly as <code>[YourName]_Resume.pdf</code>.
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/resume.js"></script>
+</body>
+</html>
+

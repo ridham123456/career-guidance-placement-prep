@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Guidance & Roadmaps | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .roadmap-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .roadmap-num {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+    .roadmap-body {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+    .skills-pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 16px;
+    }
+    .skill-chip {
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h2>MargDarshi</h2>
+          <span>Societal Internship</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="sidebar-category">Main Navigation</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="aptitude.html" class="sidebar-link">
+              <span class="sidebar-icon">🎯</span>
+              <span>Aptitude Practice</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="technical.html" class="sidebar-link">
+              <span class="sidebar-icon">💻</span>
+              <span>Technical Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="interview.html" class="sidebar-link">
+              <span class="sidebar-icon">💼</span>
+              <span>Interview Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="career.html" class="sidebar-link active">
+              <span class="sidebar-icon">🧭</span>
+              <span>Career Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resume.html" class="sidebar-link">
+              <span class="sidebar-icon">📝</span>
+              <span>Resume Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resources.html" class="sidebar-link">
+              <span class="sidebar-icon">📚</span>
+              <span>Placement Resources</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="progress.html" class="sidebar-link">
+              <span class="sidebar-icon">📈</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-category">Account</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="profile.html" class="sidebar-link">
+              <span class="sidebar-icon">👤</span>
+              <span>Student Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title">Career Paths & Learning Roadmaps</h1>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">ST</div>
+          <div>
+            <div class="user-info-text student-name">Student</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" class="student-branch">CSE</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content-container">
+
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">
+            Industry Career Roles & Step-by-Step Roadmaps
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Explore in-demand tech roles, essential skills, technologies to master, and college preparation strategies to break in successfully.
+          </p>
+        </div>
+
+        <!-- Career Selector Pills -->
+        <div class="tabs-container" id="careerTabs">
+          <button class="tab-btn active" data-role="sde">Software Developer</button>
+          <button class="tab-btn" data-role="web">Web Developer</button>
+          <button class="tab-btn" data-role="data-analyst">Data Analyst</button>
+          <button class="tab-btn" data-role="data-scientist">Data Scientist</button>
+          <button class="tab-btn" data-role="aiml">AI / ML Engineer</button>
+          <button class="tab-btn" data-role="cyber">Cyber Security</button>
+          <button class="tab-btn" data-role="cloud">Cloud / DevOps</button>
+        </div>
+
+        <!-- Dynamic Career Content Container -->
+        <div id="careerContent">
+          <!-- Rendered dynamically by career.js -->
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/career.js"></script>
+</body>
+</html>
+

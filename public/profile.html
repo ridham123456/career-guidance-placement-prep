@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h2>MargDarshi</h2>
+          <span>Societal Internship</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="sidebar-category">Main Navigation</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="aptitude.html" class="sidebar-link">
+              <span class="sidebar-icon">🎯</span>
+              <span>Aptitude Practice</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="technical.html" class="sidebar-link">
+              <span class="sidebar-icon">💻</span>
+              <span>Technical Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="interview.html" class="sidebar-link">
+              <span class="sidebar-icon">💼</span>
+              <span>Interview Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="career.html" class="sidebar-link">
+              <span class="sidebar-icon">🧭</span>
+              <span>Career Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resume.html" class="sidebar-link">
+              <span class="sidebar-icon">📝</span>
+              <span>Resume Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resources.html" class="sidebar-link">
+              <span class="sidebar-icon">📚</span>
+              <span>Placement Resources</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="progress.html" class="sidebar-link">
+              <span class="sidebar-icon">📈</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-category">Account</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="profile.html" class="sidebar-link active">
+              <span class="sidebar-icon">👤</span>
+              <span>Student Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title">Student Profile & Settings</h1>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">ST</div>
+          <div>
+            <div class="user-info-text student-name">Student</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" class="student-branch">CSE</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content-container">
+
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">
+            Academic Profile Management
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Review and update your enrolled academic branch, semester, and personal details.
+          </p>
+        </div>
+
+        <div class="grid-cols-3">
+          <!-- Profile Information Summary Card -->
+          <div class="card" style="text-align: center; padding: 36px 24px;">
+            <div class="user-avatar" style="width: 72px; height: 72px; font-size: 1.8rem; margin: 0 auto 16px;">
+              ST
+            </div>
+            <h3 class="student-name" style="font-size: 1.3rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px;">
+              Student Name
+            </h3>
+            <p id="profileCardEmail" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+              email@college.edu
+            </p>
+            <span class="badge badge-blue student-branch" style="font-size: 0.85rem; padding: 6px 14px;">
+              CSE (5th Semester)
+            </span>
+
+            <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: left; font-size: 0.88rem; color: var(--text-muted);">
+              <div style="margin-bottom: 8px;">
+                <strong>Role:</strong> Student (Engineering)
+              </div>
+              <div style="margin-bottom: 8px;">
+                <strong>Registered on:</strong> <span id="profileJoinedDate">-</span>
+              </div>
+              <div>
+                <strong>Database Status:</strong> <span class="badge badge-green">MongoDB Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit Profile Form (Spans 2 columns) -->
+          <div class="card" style="grid-column: span 2;">
+            <div class="card-header">
+              <h3 class="card-title">Update Profile Details</h3>
+              <span class="badge badge-gray">Editable</span>
+            </div>
+
+            <div id="profileAlert" style="display: none;"></div>
+
+            <form id="profileForm">
+              <div class="form-group">
+                <label class="form-label" for="editName">Full Name</label>
+                <input type="text" id="editName" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="editEmail">College Email (Read Only)</label>
+                <input type="email" id="editEmail" class="form-control" disabled style="background-color: #f1f5f9; cursor: not-allowed;">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Email serves as primary identifier in database.</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="editBranch">Branch</label>
+                  <select id="editBranch" class="form-control" required>
+                    <option value="Computer Science & Engineering">Computer Science & Engg (CSE)</option>
+                    <option value="Information Science & Engineering">Information Science (ISE)</option>
+                    <option value="Electronics & Communication">Electronics & Comm (ECE)</option>
+                    <option value="Electrical & Electronics">Electrical & Electronics (EEE)</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Information Technology">Information Technology (IT)</option>
+                    <option value="Artificial Intelligence & Data Science">AI & Data Science (AI/DS)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="editSemester">Current Semester</label>
+                  <select id="editSemester" class="form-control" required>
+                    <option value="3rd Semester">3rd Semester</option>
+                    <option value="4th Semester">4th Semester</option>
+                    <option value="5th Semester">5th Semester</option>
+                    <option value="6th Semester">6th Semester</option>
+                    <option value="7th Semester">7th Semester</option>
+                    <option value="8th Semester">8th Semester</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 10px; padding-top: 16px; border-top: 1px dashed var(--border-color);">
+                <label class="form-label" for="newPassword">Change Password (Optional)</label>
+                <input type="password" id="newPassword" class="form-control" placeholder="Leave blank to keep current password" minlength="6">
+              </div>
+
+              <button type="submit" id="saveProfileBtn" class="btn btn-primary" style="margin-top: 10px;">
+                Save Profile Changes 💾
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
+

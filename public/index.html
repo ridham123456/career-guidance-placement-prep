@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MargDarshi | College Career Guidance & Placement Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Landing page specific hero styling */
+    .hero-section {
+      padding: 80px 0 60px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.2;
+      max-width: 860px;
+      margin: 0 auto 20px;
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .problem-banner {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin: -30px auto 60px;
+      max-width: 1000px;
+      box-shadow: var(--shadow-lg);
+    }
+    .problem-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .problem-tag {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #93c5fd;
+    }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .footer {
+      background: var(--bg-sidebar);
+      color: #94a3b8;
+      padding: 40px 0;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="public-header">
+    <div class="public-container">
+      <nav class="public-nav">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">🎓</div>
+          <span>MargDarshi</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#resources">Placement Prep</a></li>
+          <li><a href="login.html" class="btn btn-secondary btn-sm">Login</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register Free</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="public-container">
+      <div class="hero-badge">
+        <span>🌱</span> Societal Internship Product Demo • 5th Semester
+      </div>
+      <h1 class="hero-title">
+        Addressing Lack of <span>Career Guidance</span> & Placement Preparation
+      </h1>
+      <p class="hero-subtitle">
+        “Your Journey from College to Career Starts Here.”<br>
+        A dedicated student-built preparation platform designed to bridge the guidance gap, sharpen aptitude, crack technical interviews, and track placement readiness.
+      </p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary btn-lg">Get Started Now 🚀</a>
+        <a href="login.html" class="btn btn-secondary btn-lg">Student Login 👤</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement Section -->
+  <main class="public-container">
+    <div class="problem-banner" id="problem">
+      <div class="problem-header">
+        <span class="problem-tag">Survey Findings</span>
+        <h3 style="font-size: 1.25rem; color: var(--secondary);">Why this platform was built</h3>
+      </div>
+      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 16px;">
+        During our student societal internship survey across engineering and degree colleges, over <strong>78% of students</strong> expressed severe anxiety and lack of clarity regarding company placement patterns, aptitude rounds, technical interview standards, and resume structure.
+      </p>
+      <div class="grid-cols-3" style="margin-bottom: 0;">
+        <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #ef4444;">
+          <h4 style="color: #991b1b; margin-bottom: 4px; font-size: 0.95rem;">1. Unstructured Practice</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Students waste weeks searching for reliable aptitude and technical questions scattered across unverified websites.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #f59e0b;">
+          <h4 style="color: #b45309; margin-bottom: 4px; font-size: 0.95rem;">2. Interview Hesitation</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Lack of practical HR framework answers and core technical revision causes avoidable rejections in final rounds.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #10b981;">
+          <h4 style="color: #047857; margin-bottom: 4px; font-size: 0.95rem;">3. Zero Progress Tracking</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">No measurable feedback or database tracking of student strengths, weaknesses, or diagnostic quiz metrics.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Features Section -->
+    <section id="features" style="margin-bottom: 60px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="badge badge-blue" style="margin-bottom: 8px;">Comprehensive Solution</span>
+        <h2 style="font-size: 2rem; color: var(--secondary); font-weight: 700;">Everything a College Student Needs</h2>
+        <p style="color: var(--text-muted);">All-in-one placement preparation suite crafted specifically for college students.</p>
+      </div>
+
+      <div class="grid-cols-3">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">1. Aptitude Practice</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Quantitative, Logical, and Verbal MCQs with immediate feedback, detailed step-by-step explanations, and MongoDB score recording.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">2. Technical Preparation</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Concise concept revision for C, Java, Python, DBMS, SQL, Data Structures, and Web Development with common interview questions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">3. Interview Preparation</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Master HR behavioral questions using the STAR framework, key technical questions, and vital body language & communication tips.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">4. Career Guidance</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Clear roadmaps for Software Engineering, Web Development, Data Science, AI/ML, Cyber Security, and Cloud/DevOps roles.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">5. Resume Guidance</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Standard ATS resume guidelines, action verb formulas, common pitfalls, and an interactive preparation checklist.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--secondary);">6. Real-Time Progress Tracking</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Track completed topics, previous quiz scores, and category accuracy in your personal dashboard backed by MongoDB.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div style="background: linear-gradient(135deg, #1e293b, #0f172a); color: #ffffff; border-radius: var(--radius-lg); padding: 48px; text-align: center; margin-bottom: 60px;">
+      <h2 style="font-size: 2rem; margin-bottom: 12px; font-weight: 700;">Ready for Your Upcoming Campus Placements?</h2>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 28px;">
+        Join fellow students, take diagnostic aptitude tests, prepare technical subjects, and start tracking your placement readiness today.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 16px;">
+        <a href="register.html" class="btn btn-primary btn-lg">Create Student Account</a>
+        <a href="login.html" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.1); color: #fff !important; border-color: rgba(255,255,255,0.2);">Login with Demo ID</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="public-container">
+      <p style="font-weight: 600; color: #ffffff; margin-bottom: 4px;">MargDarshi • Societal Internship Product Demo</p>
+      <p style="margin-bottom: 8px;">Project Title: “Addressing Lack of Career Guidance and Placement Preparation”</p>
+      <p style="font-size: 0.8rem; color: #64748b;">Built with Node.js, Express.js, MongoDB, Vanilla HTML, CSS & JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

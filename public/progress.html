@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracking | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h2>MargDarshi</h2>
+          <span>Societal Internship</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="sidebar-category">Main Navigation</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="aptitude.html" class="sidebar-link">
+              <span class="sidebar-icon">🎯</span>
+              <span>Aptitude Practice</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="technical.html" class="sidebar-link">
+              <span class="sidebar-icon">💻</span>
+              <span>Technical Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="interview.html" class="sidebar-link">
+              <span class="sidebar-icon">💼</span>
+              <span>Interview Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="career.html" class="sidebar-link">
+              <span class="sidebar-icon">🧭</span>
+              <span>Career Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resume.html" class="sidebar-link">
+              <span class="sidebar-icon">📝</span>
+              <span>Resume Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resources.html" class="sidebar-link">
+              <span class="sidebar-icon">📚</span>
+              <span>Placement Resources</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="progress.html" class="sidebar-link active">
+              <span class="sidebar-icon">📈</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-category">Account</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="profile.html" class="sidebar-link">
+              <span class="sidebar-icon">👤</span>
+              <span>Student Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" onclick="logout()">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title">Placement Readiness & Progress Analytics</h1>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">ST</div>
+          <div>
+            <div class="user-info-text student-name">Student</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" class="student-branch">CSE</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content-container">
+
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">
+            Personal Preparation Progress Report
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Calculated in real-time from your submitted MongoDB quiz scores, completed technical subjects, and interview milestones.
+          </p>
+        </div>
+
+        <!-- Overall Readiness Progress Card -->
+        <div class="card" style="margin-bottom: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary);">Overall Placement Readiness</h3>
+              <p style="color: var(--text-muted); font-size: 0.88rem;">Composite index combining Aptitude (35%), Technical (35%), Interview (20%), and Resume (10%).</p>
+            </div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--primary);" id="overallPct">0%</div>
+          </div>
+
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill" id="overallBar" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- 4 Core Progress Pillars -->
+        <div class="grid-cols-4">
+          <!-- Aptitude Progress -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 1.5rem;">🎯</span>
+              <span class="badge badge-blue" id="aptitudeBadge">0%</span>
+            </div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px;">Aptitude Progress</h4>
+            <div class="progress-bar-wrapper">
+              <div class="progress-bar-fill" id="aptitudeBar" style="width: 0%;"></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" id="aptitudeSubtitle">0 quizzes attempted</p>
+          </div>
+
+          <!-- Technical Prep Progress -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 1.5rem;">💻</span>
+              <span class="badge badge-green" id="technicalBadge">0%</span>
+            </div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px;">Technical Prep</h4>
+            <div class="progress-bar-wrapper">
+              <div class="progress-bar-fill" id="technicalBar" style="width: 0%; background: var(--accent);"></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" id="technicalSubtitle">0 / 8 topics prepared</p>
+          </div>
+
+          <!-- Interview Prep Progress -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 1.5rem;">💼</span>
+              <span class="badge badge-amber" id="interviewBadge">0%</span>
+            </div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px;">Interview Prep</h4>
+            <div class="progress-bar-wrapper">
+              <div class="progress-bar-fill" id="interviewBar" style="width: 0%; background: var(--warning);"></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" id="interviewSubtitle">0 / 10 practiced</p>
+          </div>
+
+          <!-- Resume Guidance Progress -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 1.5rem;">📝</span>
+              <span class="badge badge-gray" id="resumeBadge">0%</span>
+            </div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 4px;">Resume Checklist</h4>
+            <div class="progress-bar-wrapper">
+              <div class="progress-bar-fill" id="resumeBar" style="width: 0%; background: #8b5cf6;"></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" id="resumeSubtitle">0 / 6 checked</p>
+          </div>
+        </div>
+
+        <!-- Previous Quiz History in MongoDB -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Detailed Quiz Attempt History</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
+                Verified records from MongoDB <code>QuizResult</code> collection.
+              </p>
+            </div>
+            <a href="aptitude.html" class="btn btn-primary btn-sm">+ Take New Quiz</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Quiz Topic / Name</th>
+                  <th>Category</th>
+                  <th>Attempted On</th>
+                  <th>Score (Correct/Total)</th>
+                  <th>Percentage</th>
+                  <th>Outcome</th>
+                </tr>
+              </thead>
+              <tbody id="fullHistoryBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 32px;">
+                    Fetching quiz history from MongoDB...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+</html>
+

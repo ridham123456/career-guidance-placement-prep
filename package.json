@@ -1,0 +1,34 @@
+{
+  "name": "career-guidance-placement-prep",
+  "version": "1.0.0",
+  "description": "A college societal internship product demo addressing the lack of career guidance and placement preparation among students.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "seed": "node server/config/seed.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "career-guidance",
+    "placement-preparation",
+    "societal-internship",
+    "college-project"
+  ],
+  "author": "Societal Internship Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
+

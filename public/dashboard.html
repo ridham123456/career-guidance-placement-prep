@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h2>MargDarshi</h2>
+          <span>Societal Internship</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="sidebar-category">Main Navigation</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link active">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="aptitude.html" class="sidebar-link">
+              <span class="sidebar-icon">🎯</span>
+              <span>Aptitude Practice</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="technical.html" class="sidebar-link">
+              <span class="sidebar-icon">💻</span>
+              <span>Technical Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="interview.html" class="sidebar-link">
+              <span class="sidebar-icon">💼</span>
+              <span>Interview Prep</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="career.html" class="sidebar-link">
+              <span class="sidebar-icon">🧭</span>
+              <span>Career Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resume.html" class="sidebar-link">
+              <span class="sidebar-icon">📝</span>
+              <span>Resume Guidance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="resources.html" class="sidebar-link">
+              <span class="sidebar-icon">📚</span>
+              <span>Placement Resources</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="progress.html" class="sidebar-link">
+              <span class="sidebar-icon">📈</span>
+              <span>My Progress</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-category">Account</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a href="profile.html" class="sidebar-link">
+              <span class="sidebar-icon">👤</span>
+              <span>Student Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn" onclick="logout()">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title">Placement Preparation Dashboard</h1>
+        </div>
+
+        <div class="user-badge">
+          <div class="user-avatar">ST</div>
+          <div>
+            <div class="user-info-text student-name">Student</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);" class="student-branch">CSE</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="content-container">
+        
+        <!-- Welcome Banner -->
+        <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, #1e293b, #0f172a); color: #ffffff; border: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <span class="badge" style="background: rgba(37,99,235,0.4); color: #bfdbfe; margin-bottom: 10px;">
+                🎓 Societal Placement Initiative
+              </span>
+              <h2 style="font-size: 1.85rem; font-weight: 700; margin-bottom: 8px;">
+                Welcome, <span class="student-name">Student</span>!
+              </h2>
+              <p style="color: #cbd5e1; max-width: 680px; font-size: 0.95rem;">
+                Target your placement preparation through structured aptitude practice, core technical revision, HR interview simulation, and live progress tracking.
+              </p>
+            </div>
+            <div style="text-align: right; background: rgba(255, 255, 255, 0.08); padding: 18px 24px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.12);">
+              <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8;">Overall Readiness</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #38bdf8;" id="heroProgressPct">0%</div>
+              <div style="font-size: 0.78rem; color: #cbd5e1;" id="readinessStatus">Needs Revision</div>
+            </div>
+          </div>
+
+          <!-- Progress Bar in Banner -->
+          <div style="margin-top: 20px;">
+            <div class="progress-bar-wrapper" style="background: rgba(255,255,255,0.15);">
+              <div class="progress-bar-fill" id="heroProgressBar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Preparation Stat Cards -->
+        <div class="grid-cols-4">
+          <div class="stat-card">
+            <div class="stat-icon blue">🎯</div>
+            <div>
+              <div class="stat-label">Quizzes Attempted</div>
+              <div class="stat-value" id="statQuizzes">0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">⭐</div>
+            <div>
+              <div class="stat-label">Average Score</div>
+              <div class="stat-value" id="statAvgScore">0%</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon amber">📚</div>
+            <div>
+              <div class="stat-label">Completed Topics</div>
+              <div class="stat-value" id="statCompletedTopics">0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">🚀</div>
+            <div>
+              <div class="stat-label">Placement Readiness</div>
+              <div class="stat-value" id="statReadiness">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: 6 Preparation Modules -->
+        <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--secondary); margin-bottom: 18px;">
+          Preparation Modules
+        </h2>
+
+        <div class="grid-cols-3">
+          <!-- Module 1: Aptitude -->
+          <div class="module-card">
+            <span class="module-icon-large">🎯</span>
+            <h3 class="module-title">Aptitude Preparation</h3>
+            <p class="module-desc">Quantitative Aptitude, Logical Reasoning, and Verbal Ability MCQs with instant step-by-step solutions.</p>
+            <a href="aptitude.html" class="btn btn-outline" style="width: 100%;">Start Practice →</a>
+          </div>
+
+          <!-- Module 2: Technical -->
+          <div class="module-card">
+            <span class="module-icon-large">💻</span>
+            <h3 class="module-title">Technical Preparation</h3>
+            <p class="module-desc">Programming basics (C, Java, Python), DBMS, SQL, Data Structures, and Web Development essentials.</p>
+            <a href="technical.html" class="btn btn-outline" style="width: 100%;">Review Topics →</a>
+          </div>
+
+          <!-- Module 3: Interview -->
+          <div class="module-card">
+            <span class="module-icon-large">💼</span>
+            <h3 class="module-title">Interview Preparation</h3>
+            <p class="module-desc">HR behavioral questions (STAR technique), core technical interview FAQs, and body language guidance.</p>
+            <a href="interview.html" class="btn btn-outline" style="width: 100%;">Practice Questions →</a>
+          </div>
+
+          <!-- Module 4: Career Guidance -->
+          <div class="module-card">
+            <span class="module-icon-large">🧭</span>
+            <h3 class="module-title">Career Guidance</h3>
+            <p class="module-desc">Detailed roadmaps for Software Developer, Web Developer, Data Science, AI/ML, DevOps, and Cyber Security.</p>
+            <a href="career.html" class="btn btn-outline" style="width: 100%;">Explore Paths →</a>
+          </div>
+
+          <!-- Module 5: Resume Guidance -->
+          <div class="module-card">
+            <span class="module-icon-large">📝</span>
+            <h3 class="module-title">Resume Guidance</h3>
+            <p class="module-desc">ATS-friendly resume templates, action-verb impact bullet formula, common mistakes, and interactive checklist.</p>
+            <a href="resume.html" class="btn btn-outline" style="width: 100%;">Build Resume →</a>
+          </div>
+
+          <!-- Module 6: Resources -->
+          <div class="module-card">
+            <span class="module-icon-large">📚</span>
+            <h3 class="module-title">Placement Resources</h3>
+            <p class="module-desc">Hand-picked coding repositories, practice links, cheat sheets, and mock interview platforms.</p>
+            <a href="resources.html" class="btn btn-outline" style="width: 100%;">View Resources →</a>
+          </div>
+        </div>
+
+        <!-- Recent Quiz History Card -->
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header">
+            <h2 class="card-title">Recent Quiz Attempts</h2>
+            <a href="progress.html" class="btn btn-outline btn-sm">Full Progress Report →</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Quiz Topic / Name</th>
+                  <th>Category</th>
+                  <th>Date Attempted</th>
+                  <th>Score</th>
+                  <th>Percentage</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentQuizzesBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 24px;">
+                    Loading recent attempts...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

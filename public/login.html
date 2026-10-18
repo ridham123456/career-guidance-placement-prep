@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Sign In | MargDarshi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="public-header">
+    <div class="public-container">
+      <nav class="public-nav">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">🎓</div>
+          <span>MargDarshi</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="register.html" class="btn btn-outline btn-sm">Create Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <span class="badge badge-blue" style="margin-bottom: 8px;">Placement Portal</span>
+        <h1>Welcome Back</h1>
+        <p>Log in with your registered college credentials.</p>
+      </div>
+
+      <div id="alertBox" style="display: none;"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="email">Student Email</label>
+          <input type="email" id="email" class="form-control" placeholder="name@college.edu" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="password" style="margin-bottom: 0;">Password</label>
+          </div>
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          Sign In to Dashboard 🚀
+        </button>
+      </form>
+
+      <!-- Instant Demo Credentials Helper for Examiners -->
+      <div class="demo-account-box">
+        <div>
+          <strong>Demo Account:</strong><br>
+          <span style="font-family: monospace;">student@demo.edu</span> | <span style="font-family: monospace;">password123</span>
+        </div>
+        <button type="button" id="fillDemoBtn" class="btn btn-secondary btn-sm" style="background: #ffffff; border: 1px solid #93c5fd;">
+          Auto Fill
+        </button>
+      </div>
+
+      <div class="form-footer">
+        Don't have an account? <a href="register.html" style="font-weight: 600;">Register here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Route guard: if already logged in, redirect to dashboard
+    checkAuthGuard(false);
+
+    const loginForm = document.getElementById('loginForm');
+    const alertBox = document.getElementById('alertBox');
+    const submitBtn = document.getElementById('submitBtn');
+    const fillDemoBtn = document.getElementById('fillDemoBtn');
+
+    // Auto-fill demo credentials
+    fillDemoBtn.addEventListener('click', () => {
+      document.getElementById('email').value = 'student@demo.edu';
+      document.getElementById('password').value = 'password123';
+      showAlert('Demo credentials filled! Click "Sign In to Dashboard".', 'info');
+    });
+
+    // Check query params for session expiry
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('expired')) {
+      showAlert('Your session has expired. Please log in again.', 'error');
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.style.display = 'none';
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying Credentials...';
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          showAlert('Login successful! Loading your dashboard...', 'success');
+          setAuth(data.token, data.user);
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 800);
+        } else {
+          showAlert(data.message || 'Invalid email or password.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign In to Dashboard 🚀';
+        }
+      } catch (err) {
+        console.error(err);
+        showAlert('Unable to reach server. Please ensure Node.js is running.', 'error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Dashboard 🚀';
+      }
+    });
+
+    function showAlert(msg, type) {
+      alertBox.textContent = msg;
+      alertBox.className = `alert alert-${type}`;
+      alertBox.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
